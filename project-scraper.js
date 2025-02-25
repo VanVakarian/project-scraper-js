@@ -1,22 +1,6 @@
 import { promises as fs } from 'fs';
 import { basename, join, relative, resolve } from 'path';
-
-const FILE_EXTENSIONS_INCLUDE = ['.js', '.ts', '.json', '.html', '.css', '.scss', '.py', '.example', '.md'];
-
-const DIR_NAMES_IGNORE = ['node_modules', 'public', 'assets', '.angular', '.vscode', 'del', 'dist', 'static', 'venv'];
-
-const FILE_NAMES_IGNORE = [
-  'package-lock.json',
-  'package.json',
-  'prettierrc.json',
-  'tsconfig.app.json',
-  'tailwind.config.js',
-  'tsconfig.spec.json',
-  'angular.json',
-  'tsconfig.json',
-  '.prettierrc.json',
-  'env.js',
-];
+import { DIR_NAMES_IGNORE, FILE_EXTENSIONS_INCLUDE, FILE_NAMES_IGNORE } from './settings.js';
 
 function parseArgs() {
   const args = process.argv.slice(2);

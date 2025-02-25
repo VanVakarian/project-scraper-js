@@ -50,11 +50,15 @@ node project-scraper.js --path ./my-project --no-paths
 
 ## Configuration
 
-The script includes built-in filters for common files and directories:
+All configuration settings are stored in `settings.js`:
 
-- Ignored directories: node_modules, public, assets, .angular, .vscode, del, dist, static, venv
-- Ignored files: package-lock.json, package.json, and various configuration files
-- Included file extensions: .js, .ts, .json, .html, .css, .scss, .py, .example, .md
+```javascript
+export const FILE_EXTENSIONS_INCLUDE = [".js", ".ts", ...];
+export const DIR_NAMES_IGNORE = ["node_modules", "public", ...];
+export const FILE_NAMES_IGNORE = ["package-lock.json", ...];
+```
+
+To modify the script's behavior, edit the corresponding arrays in the `settings.js` file.
 
 ## Output
 

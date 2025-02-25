@@ -1,6 +1,6 @@
 {
   "name": "project-scraper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Utility for collecting file contents from a project directory",
   "main": "project-scraper.js",
   "scripts": {
