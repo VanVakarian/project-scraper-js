@@ -1,5 +1,7 @@
 // rename this file to settings.js
 
+export const OUTPUT_DIRECTORY = './scraped-projects';
+
 export const FILE_EXTENSIONS_INCLUDE = ['.js', '.ts', '.json'];
 
 export const DIR_NAMES_IGNORE = [

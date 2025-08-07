@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs';
 import { basename, join, relative, resolve } from 'path';
-import { DIR_NAMES_IGNORE, FILE_EXTENSIONS_INCLUDE, FILE_NAMES_IGNORE } from './settings.js';
+import { DIR_NAMES_IGNORE, FILE_EXTENSIONS_INCLUDE, FILE_NAMES_IGNORE, OUTPUT_DIRECTORY } from './settings.js';
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -95,7 +95,22 @@ async function main() {
   }
 
   const rootFolderName = basename(resolve(directory));
-  const outputFile = options.outputFilename || `${rootFolderName}.project_src`;
+
+  let outputFile;
+  if (options.outputFilename) {
+    outputFile = options.outputFilename;
+  } else {
+    const outputDir = resolve(OUTPUT_DIRECTORY);
+    try {
+      await fs.mkdir(outputDir, { recursive: true });
+    } catch (error) {
+      console.error(`Error creating output directory ${outputDir}:`, error.message);
+      process.exit(1);
+    }
+
+    outputFile = join(outputDir, `${rootFolderName}.txt`);
+  }
+
   const includePaths = options.paths;
 
   try {
