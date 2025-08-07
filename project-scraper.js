@@ -73,6 +73,14 @@ async function collectFiles(directory, includePaths) {
 }
 
 async function saveToFile(text, outputFile) {
+  try {
+    await fs.unlink(outputFile);
+  } catch (error) {
+    if (error.code !== 'ENOENT') {
+      throw error;
+    }
+  }
+
   await fs.writeFile(outputFile, text, 'utf-8');
   return text.length;
 }

@@ -1,4 +1,6 @@
-export const FILE_EXTENSIONS_INCLUDE = ['.js', '.ts', '.json', '.html', '.css', '.scss', '.py', '.example', '.md'];
+// rename this file to settings.js
+
+export const FILE_EXTENSIONS_INCLUDE = ['.js', '.ts', '.json'];
 
 export const DIR_NAMES_IGNORE = [
   'node_modules',
@@ -15,13 +17,10 @@ export const DIR_NAMES_IGNORE = [
 
 export const FILE_NAMES_IGNORE = [
   'package-lock.json',
-  'package.json',
   'prettierrc.json',
   'tsconfig.app.json',
   'tailwind.config.js',
   'tsconfig.spec.json',
-  'angular.json',
-  'tsconfig.json',
   '.prettierrc.json',
-  'env.js',
+  'GEMINI.md',
 ];
